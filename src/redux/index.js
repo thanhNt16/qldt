@@ -29,7 +29,7 @@ const enhancer = composeEnhancers(applyMiddleware(sagaMiddleware));
 
 const initializeStore = initialState => {
   const store = createStore(createReducer(), initialState, enhancer);
-  sagaMiddleware.run(helloSaga);
+  store.sagaTask = sagaMiddleware.run(helloSaga);
   return store;
 };
 
