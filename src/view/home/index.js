@@ -5,6 +5,7 @@ import { Layout, Menu, Breadcrumb } from "antd";
 
 const { SubMenu } = Menu;
 const { Header, Content, Sider } = Layout;
+import css from "./styles.css";
 
 export default class Home extends React.Component {
   render() {
@@ -35,7 +36,7 @@ export default class Home extends React.Component {
           </Menu>
         </Header>
         <Layout>
-          <Sider width={200} style={{ background: "#fff" }}>
+          <Sider width={200} style={{ background: "#000" }}>
             <Menu
               mode="inline"
               defaultSelectedKeys={["1"]}
@@ -68,16 +69,7 @@ export default class Home extends React.Component {
               <Breadcrumb.Item>List</Breadcrumb.Item>
               <Breadcrumb.Item>App</Breadcrumb.Item>
             </Breadcrumb>
-            <Content
-              style={{
-                background: "#fff",
-                padding: 24,
-                margin: 0,
-                minHeight: 280,
-              }}
-            >
-              Content
-            </Content>
+            <Content className={css.content}>Content</Content>
           </Layout>
         </Layout>
       </Layout>
