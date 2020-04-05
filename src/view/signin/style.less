@@ -1,4 +1,7 @@
-.container {
+@import (css) url("https://fonts.googleapis.com/css?family=Open+Sans:400,700");
+
+.wrap {
+  font-family: "Open Sans", sans-serif;
   @media only screen and (max-device-width: 480px) {
     /* styles for mobile browsers smaller than 480px; (iPhone) */
     flex-direction: column;
@@ -16,8 +19,22 @@
 .right {
   width: 30%;
   height: 100%;
+  padding-top: 50px;
+  display: flex;
+  flex-direction: column;
   @media only screen and (max-device-width: 480px) {
     /* styles for mobile browsers smaller than 480px; (iPhone) */
     width: 100%;
   }
+}
+
+.login-form {
+  width: 100%;
+  padding: 50px;
+}
+.login-form-forgot {
+  float: right;
+}
+.login-form-button {
+  width: 100%;
 }

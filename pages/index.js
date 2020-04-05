@@ -1,2 +1,2 @@
-import SignIn from "view/signin";
+import SignIn from "src/view/signin";
 export default SignIn;

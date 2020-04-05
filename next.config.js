@@ -1,28 +1,27 @@
-module.exports = () => {
-  /* eslint-disable */
-  const withLess = require("@zeit/next-less");
-  const withCSS = require("@zeit/next-css");
+/* eslint-disable */
+const withSass = require("@zeit/next-sass");
+const withLess = require("@zeit/next-less");
+const withOptimizedImages = require("next-optimized-images");
+const path = require("path");
 
-  const lessToJS = require("less-vars-to-js");
-  const fs = require("fs");
-  const path = require("path");
-  // Where your antd-custom.less file lives
-  const themeVariables = lessToJS(
-    fs.readFileSync(
-      path.resolve(__dirname, "./assets/antd-custom.less"),
-      "utf8"
-    )
-  );
-  // fix: prevents error when .less files are required by node
-  if (typeof require !== "undefined") {
-    require.extensions[".less"] = (file) => {};
-  }
-  return withCSS(
-    withLess({
+const isProd = process.env.NODE_ENV === "production";
+
+// fix: prevents error when .less files are required by node
+if (typeof require !== "undefined") {
+  require.extensions[".less"] = (file) => {};
+}
+
+module.exports = withLess(
+  withSass(
+    withOptimizedImages({
       lessLoaderOptions: {
         javascriptEnabled: true,
-        modifyVars: themeVariables, // make your antd custom effective
+      },
+      webpack(config) {
+        config.resolve.alias.images = path.join(__dirname, "images");
+        config.resolve.modules.push(path.resolve("./"));
+        return config;
       },
     })
-  );
-};
+  )
+);
