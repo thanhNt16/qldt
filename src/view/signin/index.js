@@ -13,21 +13,7 @@ export default function SignIn() {
   return (
     <div className="flex w-full h-screen wrap">
       <div className="left image-container">
-        <img className="blur-image" src={require(`images/cover.jpg?lqip`)} />
-        <img src={require("images/cover.jpg?webp")} />
-        <style jsx>{`
-        .image-container: {
-          position: relative:
-
-        }
-        img {
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 70%;
-          height: 100%
-        }
-    `}</style>
+        <img className="w-full h-full" src={require("images/cover.jpg?webp")} />
       </div>
       <div className="right">
         <div className="flex w-full items-center pr-12 pl-12">
