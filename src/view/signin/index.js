@@ -13,15 +13,29 @@ export default function SignIn() {
   return (
     <div className="flex w-full h-screen wrap">
       <div className="left image-container">
-        <img className="w-full h-full" src={require("images/cover.jpg?webp")} />
+        <picture>
+          <source srcSet={require("images/cover.jpg?webp")} type="image/webp" />
+          <source srcSet={require("images/cover.jpg")} type="image/jpeg" />
+          <img
+            className="w-full h-full"
+            src={require("images/cover.jpg?webp")}
+          />
+        </picture>
       </div>
       <div className="right">
         <div className="flex w-full items-center pr-12 pl-12">
-          <img
-            className="mr-6"
-            style={{ width: 55, height: 81 }}
-            src={require("images/logo.jpg?webp")}
-          />
+          <picture>
+            <source
+              srcSet={require("images/logo.jpg?webp")}
+              type="image/webp"
+            />
+            <source srcSet={require("images/logo.jpg")} type="image/jpeg" />
+            <img
+              className="mr-6"
+              style={{ width: 55, height: 81 }}
+              src={require("images/logo.jpg?webp")}
+            />
+          </picture>
           <div>
             <p className="font-bold">
               HỆ THỐNG QUẢN LÝ GIẢNG DẠY, ĐỒ ÁN VÀ DỊCH VỤ TRỰC TUYẾN
