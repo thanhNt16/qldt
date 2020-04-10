@@ -1,14 +1,18 @@
 import React from "react";
 import { Form, Input, Button, Checkbox, Typography } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
+import { useDispatch } from "react-redux";
+import * as Actions from "src/store/actions";
 
 import "./style.less";
 
 const { Title } = Typography;
 
 export default function SignIn() {
+  const dispatch = useDispatch();
   const onFinish = (values) => {
     console.log("Received values of form: ", values);
+    dispatch(Actions.loginRequest({ ...values }));
   };
   return (
     <div className="flex w-full h-screen wrap">

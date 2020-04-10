@@ -2,11 +2,11 @@ import auth from "./auth";
 import home from "../view/home/reducers";
 import { combineReducers } from "redux";
 
-const createReducer = asyncReducers =>
+const createReducer = (asyncReducers) =>
   combineReducers({
     auth,
     home,
-    ...asyncReducers
+    ...asyncReducers,
   });
 
 export default createReducer;

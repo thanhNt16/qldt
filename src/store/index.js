@@ -2,10 +2,8 @@ import * as reduxModule from "redux";
 import { applyMiddleware, compose, createStore } from "redux";
 import createReducer from "./reducer";
 import createSagaMiddleware from "redux-saga";
+import rootSaga from "./rootSaga";
 
-function* helloSaga() {
-  console.log("Hello Sagas!");
-}
 /*
 Fix for Firefox redux dev tools extension
 https://github.com/zalmoxisus/redux-devtools-instrument/pull/19#issuecomment-400637274
@@ -27,9 +25,9 @@ const enhancer = composeEnhancers(applyMiddleware(sagaMiddleware));
 // const store = createStore(createReducer(), enhancer);
 // sagaMiddleware.run(helloSaga);
 
-const initializeStore = initialState => {
+const initializeStore = (initialState) => {
   const store = createStore(createReducer(), initialState, enhancer);
-  store.sagaTask = sagaMiddleware.run(helloSaga);
+  store.sagaTask = sagaMiddleware.run(rootSaga);
   return store;
 };
 
