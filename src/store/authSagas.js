@@ -1,16 +1,44 @@
+import swal from "sweetalert";
 import { call, put, take, takeEvery } from "redux-saga/effects";
-import * as services from "src/services";
-import { LOGIN_REQUEST } from "src/store/actions";
+import Router from "next/router";
+import * as Actions from "src/store/actions";
+import * as UserServices from "src/services/user.services";
 
-export function* fetchData() {
+export function* loginRequest({ data }) {
+  yield put({ type: Actions.SET_LOADING, data: true });
   try {
-    const data = yield call(services.simpleFetch);
-    yield put({ type: "FETCH_SUCCEEDED", data });
+    const result = yield call(UserServices.loginWithPassword, data);
+    if (result.status === 1) {
+      yield put({ type: Actions.LOGIN_SUCCESS, data: { ...result.data } });
+      yield put({ type: Actions.LOGIN_FAILED, data: null });
+      yield put({ type: Actions.SET_LOADING, data: false });
+      swal({
+        text: "Đăng nhập thành công",
+        title: "Thành công!",
+        icon: "success",
+      }).then((value) => {
+        value && Router.push("/home");
+      });
+    } else {
+      yield put({ type: Actions.LOGIN_FAILED, data: { ...result.data } });
+      yield put({ type: Actions.SET_LOADING, data: false });
+      swal({
+        text: result.data,
+        title: "Lỗi",
+        icon: "error",
+      });
+    }
   } catch (error) {
-    console.log(error);
+    yield put({ type: Actions.LOGIN_FAILED, data: error });
+    yield put({ type: Actions.SET_LOADING, data: false });
+    swal({
+      text: error,
+      title: "Lỗi",
+      icon: "error",
+    });
   }
 }
 
-export function* watchFetchData() {
-  yield takeEvery(LOGIN_REQUEST, fetchData);
+export function* watchLoginRequest() {
+  yield takeEvery(Actions.LOGIN_REQUEST, loginRequest);
 }

@@ -1,4 +1,4 @@
-import auth from "./auth";
+import auth from "./authReducer";
 import home from "../view/home/reducers";
 import { combineReducers } from "redux";
 
