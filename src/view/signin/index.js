@@ -2,6 +2,7 @@ import React from "react";
 import { Form, Input, Button, Checkbox, Typography } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import { useDispatch } from "react-redux";
+import { encryptorPass } from "src/services/user.services";
 import * as Actions from "src/store/actions";
 
 import "./style.less";
@@ -12,6 +13,7 @@ export default function SignIn() {
   const dispatch = useDispatch();
   const onFinish = (values) => {
     console.log("Received values of form: ", values);
+    console.log("encoded", encryptorPass("20163727", "h"));
     dispatch(Actions.loginRequest({ ...values }));
   };
   return (
