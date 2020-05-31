@@ -3,6 +3,7 @@ import { call, put, take, takeEvery } from "redux-saga/effects";
 import Router from "next/router";
 import * as Actions from "src/store/actions";
 import * as UserServices from "src/services/user.services";
+import { login } from "src/utils/auth";
 
 export function* loginRequest({ data }) {
   yield put({ type: Actions.SET_LOADING, data: true });
@@ -16,8 +17,10 @@ export function* loginRequest({ data }) {
         text: "Đăng nhập thành công",
         title: "Thành công!",
         icon: "success",
-      }).then((value) => {
-        value && Router.push("/home");
+      }).then(() => {
+        // value && Router.push("/home");
+        // console.log("data", result.data.sessionId);
+        login({ token: result.data.sessionId });
       });
     } else {
       yield put({ type: Actions.LOGIN_FAILED, data: { ...result.data } });

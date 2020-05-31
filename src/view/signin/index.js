@@ -1,15 +1,16 @@
 import React from "react";
-import { Form, Input, Button, Checkbox, Typography, Alert } from "antd";
+import { Form, Input, Button, Checkbox, Typography, Row, Col } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import { useDispatch, useSelector } from "react-redux";
 import * as Actions from "src/store/actions";
-
+import useCookie from "src/hook/useCookie";
 import "./style.less";
 
 const { Title } = Typography;
 
 export default function SignIn() {
   const dispatch = useDispatch();
+  useCookie();
   const error = useSelector(({ auth }) => auth.error);
   const onFinish = (values) => {
     dispatch(Actions.loginRequest({ ...values }));
@@ -32,26 +33,27 @@ export default function SignIn() {
           </picture>
         </div>
         <div className="right">
-          <div className="flex w-full items-center pr-12 pl-12">
-            <picture>
-              <source
-                srcSet={require("images/logo.jpg?webp")}
-                type="image/webp"
-              />
-              <source srcSet={require("images/logo.jpg")} type="image/jpeg" />
-              <img
-                className="mr-6"
-                style={{ width: 55, height: 81 }}
-                src={require("images/logo.jpg?webp")}
-              />
-            </picture>
-            <div>
+          <Row className="flex w-full items-center pr-12 pl-12">
+            <Col className="lg:h-full w-full" md={24} lg={4}>
+              <picture className="h-full">
+                <source
+                  srcSet={require("images/logo.jpg?webp")}
+                  type="image/webp"
+                />
+                <source srcSet={require("images/logo.jpg")} type="image/jpeg" />
+                <img
+                  className="w-1/2 my-2 lg:my-0 mx-auto lg:w-3/4"
+                  src={require("images/logo.jpg?webp")}
+                />
+              </picture>
+            </Col>
+            <Col className="lg:h-full" md={24} lg={20}>
               <p className="font-bold">
                 HỆ THỐNG QUẢN LÝ GIẢNG DẠY, ĐỒ ÁN VÀ DỊCH VỤ TRỰC TUYẾN
               </p>
               <p>TRƯỜNG ĐẠI HỌC BÁCH KHOA HÀ NỘI</p>
-            </div>
-          </div>
+            </Col>{" "}
+          </Row>
           <Title className="mt-6 ml-auto mr-auto">Đăng nhập</Title>
           <Form
             name="normal_login"
