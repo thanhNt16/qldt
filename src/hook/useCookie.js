@@ -12,12 +12,12 @@ export default function useCookie() {
         const data = await response.json();
         if (data.status === 0) {
           // redirectOnError();
-          Router.push("/");
+          Router.push("/login");
         } else {
-          Router.push("/home");
+          Router.push("/");
         }
       } catch (error) {
-        Router.push("/");
+        Router.push("/login");
       }
     }
     checkCookie();
