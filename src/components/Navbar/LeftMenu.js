@@ -5,10 +5,7 @@ const MenuItemGroup = Menu.ItemGroup;
 class LeftMenu extends Component {
   render() {
     return (
-      <Menu mode="horizontal">
-        <Menu.Item key="mail">
-          <a href="">Home</a>
-        </Menu.Item>
+      <Menu mode={this.props.mode}>
         <SubMenu
           style={{
             background: "#444444",
@@ -16,19 +13,25 @@ class LeftMenu extends Component {
               color: "#fff !important",
             },
           }}
-          title={<span>Blogs</span>}
+          title={<span>ĐỒ ÁN</span>}
         >
-          <MenuItemGroup title="Item 1">
-            <Menu.Item key="setting:1">Option 1</Menu.Item>
-            <Menu.Item key="setting:2">Option 2</Menu.Item>
-          </MenuItemGroup>
-          <MenuItemGroup title="Item 2">
-            <Menu.Item key="setting:3">Option 3</Menu.Item>
-            <Menu.Item key="setting:4">Option 4</Menu.Item>
+          <MenuItemGroup title="">
+            <Menu.Item key="setting:1">DANH SÁCH ĐỒ ÁN</Menu.Item>
+            <Menu.Item key="setting:2">ĐĂNG KÝ NGUYỆN VỌNG</Menu.Item>
+            <Menu.Item key="setting:3">ĐỒ ÁN THAM KHẢO</Menu.Item>
+            <Menu.Item key="setting:4">ĐỊNH HƯỚNG ĐỀ TÀI</Menu.Item>
+            <Menu.Item key="setting:5">DS DOANH NGHIỆP</Menu.Item>
+            <Menu.Item key="setting:6">KIỂM TRA ĐẠO VĂN</Menu.Item>
           </MenuItemGroup>
         </SubMenu>
+        <Menu.Item key="mail">
+          <a href="">LỊCH HỌC</a>
+        </Menu.Item>
         <Menu.Item key="alipay">
-          <a href="">Contact Us</a>
+          <a href="">BIỂU MẪU</a>
+        </Menu.Item>
+        <Menu.Item key="Hỏi đáp">
+          <a href="">HỎI ĐÁP</a>
         </Menu.Item>
       </Menu>
     );

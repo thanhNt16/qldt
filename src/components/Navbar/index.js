@@ -23,20 +23,20 @@ class Navbar extends Component {
       <nav className="menuBar">
         <div className="menuCon">
           <div className="leftMenu">
-            <LeftMenu />
+            <LeftMenu mode="horizontal" />
           </div>
 
           <Button className="barsMenu" type="primary" onClick={this.showDrawer}>
             <span className="barsBtn"></span>
           </Button>
           <Drawer
-            title="Basic Drawer"
+            title=""
             placement="right"
             closable={false}
             onClose={this.onClose}
             visible={this.state.visible}
           >
-            <LeftMenu />
+            <LeftMenu mode="vertical" />
             {/* <RightMenu /> */}
           </Drawer>
         </div>

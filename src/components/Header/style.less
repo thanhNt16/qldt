@@ -1,3 +1,6 @@
+@mobile:    ~"only screen and (min-width: 480px) and (max-width: 768px)";
+
+
 .background-white {
   background: #fff;
   display: flex;
@@ -16,11 +19,18 @@
 .upper-text {
   font-size: 18px;
   font-weight: bold;
+  @media (max-width: 767px) { 
+    font-size: 12px !important; 
+  }
 }
 .lower-text {
   font-size: 16px;
   font-weight: 400;
+  @media (max-width: 767px) { 
+    font-size: 10px !important; 
+  }
 }
+
 .logo {
   height: 25px;
   width: 25px;
