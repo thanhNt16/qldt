@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Menu, Icon } from "antd";
+import { Menu, Icon, Tooltip } from "antd";
 const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.ItemGroup;
 class LeftMenu extends Component {
@@ -24,14 +24,21 @@ class LeftMenu extends Component {
             <Menu.Item key="setting:6">KIỂM TRA ĐẠO VĂN</Menu.Item>
           </MenuItemGroup>
         </SubMenu>
-        <Menu.Item key="mail">
-          <a href="">LỊCH HỌC</a>
+
+        <Menu.Item className="nav-item" key="mail">
+          <Tooltip placement="top" title="Tra cứu thông tin về lớp: Thời khóa biểu, giảng viên, trạng thái,...">
+            <a href="">LỊCH HỌC</a>
+          </Tooltip>
         </Menu.Item>
-        <Menu.Item key="alipay">
-          <a href="">BIỂU MẪU</a>
+        <Menu.Item className="nav-item" key="alipay">
+          <Tooltip placement="top" title="Đăng kí online các biếu mẫu của Viện">
+            <a href="">BIỂU MẪU</a>
+          </Tooltip>
         </Menu.Item>
-        <Menu.Item key="Hỏi đáp">
-          <a href="">HỎI ĐÁP</a>
+        <Menu.Item className="nav-item" key="Hỏi đáp">
+          <Tooltip placement="top" title="Tra cứu thông tin Hướng dẫn sử dụng, các câu hỏi thường gặp,...">
+            <a href="">HỎI ĐÁP</a>
+          </Tooltip>
         </Menu.Item>
       </Menu>
     );
