@@ -31,13 +31,14 @@ class LeftMenu extends Component {
           </Tooltip>
         </Menu.Item>
         <Menu.Item className="nav-item" key="alipay">
-          <Tooltip placement="top" title="Đăng kí online các biếu mẫu của Viện">
+          <Tooltip placement="top" title="Đăng kí online các biểu mẫu của Viện">
             <a href="">BIỂU MẪU</a>
           </Tooltip>
         </Menu.Item>
         <Menu.Item className="nav-item" key="Hỏi đáp">
           <Tooltip placement="top" title="Tra cứu thông tin Hướng dẫn sử dụng, các câu hỏi thường gặp,...">
             <a href="">HỎI ĐÁP</a>
+
           </Tooltip>
         </Menu.Item>
       </Menu>
