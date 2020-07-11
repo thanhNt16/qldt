@@ -13,8 +13,6 @@ export default function useCookie() {
         if (data.status === 0) {
           // redirectOnError();
           Router.push("/login");
-        } else {
-          Router.push("/");
         }
       } catch (error) {
         Router.push("/login");

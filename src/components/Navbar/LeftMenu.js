@@ -26,7 +26,10 @@ class LeftMenu extends Component {
         </SubMenu>
 
         <Menu.Item className="nav-item" key="mail">
-          <Tooltip placement="top" title="Tra cứu thông tin về lớp: Thời khóa biểu, giảng viên, trạng thái,...">
+          <Tooltip
+            placement="top"
+            title="Tra cứu thông tin về lớp: Thời khóa biểu, giảng viên, trạng thái,..."
+          >
             <a href="">LỊCH HỌC</a>
           </Tooltip>
         </Menu.Item>
@@ -36,9 +39,11 @@ class LeftMenu extends Component {
           </Tooltip>
         </Menu.Item>
         <Menu.Item className="nav-item" key="Hỏi đáp">
-          <Tooltip placement="top" title="Tra cứu thông tin Hướng dẫn sử dụng, các câu hỏi thường gặp,...">
+          <Tooltip
+            placement="top"
+            title="Tra cứu thông tin Hướng dẫn sử dụng, các câu hỏi thường gặp,..."
+          >
             <a href="">HỎI ĐÁP</a>
-
           </Tooltip>
         </Menu.Item>
       </Menu>
