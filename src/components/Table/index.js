@@ -131,6 +131,7 @@ export default function CustomTable(props) {
       columns={columns}
       className="w-full"
       size="small"
+      pagination={{ position: ["topCenter"] }}
       scroll={{ x: "100%" }}
       dataSource={dataSource}
     />
