@@ -11,6 +11,7 @@
     "@zeit/next-css": "^1.0.1",
     "@zeit/next-less": "^1.0.1",
     "@zeit/next-sass": "^1.0.1",
+    "ant-responsive-table": "^1.0.8",
     "antd": "^4.1.0",
     "axios": "^0.19.2",
     "crypto-js": "^4.0.0",
