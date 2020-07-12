@@ -1,5 +1,6 @@
 import swal from "sweetalert";
 import { call, put, take, takeEvery } from "redux-saga/effects";
+import Router from "next/router";
 import * as Actions from "src/store/actions";
 import * as UserServices from "src/services/user.services";
 import { login } from "src/utils/auth";
