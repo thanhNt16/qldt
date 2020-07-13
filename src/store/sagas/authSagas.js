@@ -12,6 +12,11 @@ export function* loginRequest({ data }) {
       yield put({ type: Actions.LOGIN_SUCCESS, data: { ...result.data } });
       yield put({ type: Actions.LOGIN_FAILED, data: null });
       yield put({ type: Actions.SET_LOADING, data: false });
+      if (result.data && result.data.teacherId) {
+        yield put({ type: Actions.SET_ROLE, data: "teacher" });
+      } else {
+        yield put({ type: Actions.SET_ROLE, data: "student" });
+      }
       swal({
         text: "Đăng nhập thành công",
         title: "Thành công!",

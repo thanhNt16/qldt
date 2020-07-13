@@ -14,7 +14,7 @@ export default function useCookie() {
           // redirectOnError();
           Router.push("/login");
         } else {
-          Router.push("/");
+          Router.push("/teacher");
         }
       } catch (error) {
         Router.push("/login");

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Table } from "antd";
-import "./style.less";
+// import "./style.less";
 
 const columns = [
   {
