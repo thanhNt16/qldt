@@ -15,6 +15,7 @@ module.exports = {
   rules: {
     "no-console": "off",
     "react/display-name": "off",
+    "react/prop-types": "off"
   },
   plugins: ["react"],
   extends: [
