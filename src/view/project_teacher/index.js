@@ -96,7 +96,7 @@ function makeProjectsData(projects) {
   return data;
 }
 
-export default function Home() {
+export default function Project() {
   const dispatch = useDispatch();
   const projects = useSelector(({ home }) => Object.values(home.projects));
 

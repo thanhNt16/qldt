@@ -7,7 +7,7 @@ import cookie from "js-cookie";
 
 export const login = ({ token, role }) => {
   cookie.set("token", token, { expires: 1 });
-  Router.push(`/${role}`);
+  Router.push(`/project`);
 };
 
 export const auth = async (ctx) => {

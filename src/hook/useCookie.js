@@ -23,10 +23,10 @@ export default function useCookie() {
         } else {
           if (data.data && data.data.teacherId) {
             dispatch(Actions.setRole("teacher"));
-            Router.push("/teacher");
+            // Router.push("/teacher");
           } else {
             dispatch(Actions.setRole("student"));
-            Router.push("/student");
+            // Router.push("/student");
           }
         }
       } catch (error) {

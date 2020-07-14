@@ -1,21 +1,21 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
-import ScheduleStudent from "src/view/schedule_student";
-import ScheduleTeacher from "src/view/schedule_teacher";
+import ProjectTeacher from "src/view/project_teacher";
+import ProjectStudent from "src/view/project_student";
 
 import useCookies from "src/hook/useCookie";
 
 import { withAuthSync } from "src/utils/auth";
 
-function schedule() {
+function Project() {
   const role = useSelector(({ auth }) => auth.role);
 
   useCookies();
 
   if (role === "teacher") {
-    return <ScheduleTeacher />;
+    return <ProjectTeacher />;
   }
-  return <ScheduleStudent />;
+  return <ProjectStudent />;
 }
 
-export default withAuthSync(schedule);
+export default withAuthSync(Project);

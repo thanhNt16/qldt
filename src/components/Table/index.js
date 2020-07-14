@@ -1,74 +1,6 @@
 import React, { useState } from "react";
 import { Table } from "antd";
 
-const columns = [
-  {
-    title: "#",
-    dataIndex: "key",
-    sorter: (a, b) => a.key - b.key,
-    sortDirections: ["descend", "ascend"],
-  },
-  {
-    title: "Mã HP",
-    dataIndex: "moduleCode",
-    sorter: (a, b) => a.moduleCode.length - b.moduleCode.length,
-    sortDirections: ["descend", "ascend"],
-  },
-  {
-    title: "Mã Lớp",
-    dataIndex: "classCode",
-    sorter: (a, b) => a.moduleCode.length - b.moduleCode.length,
-    sortDirections: ["descend", "ascend"],
-  },
-  {
-    title: "MSSV",
-    dataIndex: "studentCode",
-    sorter: (a, b) => a.moduleCode.length - b.moduleCode.length,
-    sortDirections: ["descend", "ascend"],
-  },
-  {
-    title: "Họ tên",
-    dataIndex: "studentName",
-    sorter: (a, b) => a.moduleCode.length - b.moduleCode.length,
-    sortDirections: ["descend", "ascend"],
-  },
-  {
-    title: "CV",
-    dataIndex: "cv",
-    sorter: (a, b) => a.cv.length - b.cv.length,
-    sortDirections: ["descend", "ascend"],
-    render: (text) => {
-      return {
-        children: <a href={text}>CV</a>,
-      };
-    },
-  },
-  {
-    title: "Hệ",
-    dataIndex: "program",
-    sorter: (a, b) => a.moduleCode.length - b.moduleCode.length,
-    sortDirections: ["descend", "ascend"],
-  },
-  {
-    title: "Tên học phần",
-    dataIndex: "moduleName",
-    sorter: (a, b) => a.moduleCode.length - b.moduleCode.length,
-    sortDirections: ["descend", "ascend"],
-  },
-  {
-    title: "GVHD",
-    dataIndex: "teacher",
-    sorter: (a, b) => a.moduleCode.length - b.moduleCode.length,
-    sortDirections: ["descend", "ascend"],
-  },
-  {
-    title: "Báo cáo",
-    dataIndex: "report",
-    sorter: (a, b) => a.moduleCode.length - b.moduleCode.length,
-    sortDirections: ["descend", "ascend"],
-  },
-];
-
 const data = [];
 for (let i = 0; i < 46; i++) {
   data.push({
@@ -80,7 +12,7 @@ for (let i = 0; i < 46; i++) {
 }
 
 export default function CustomTable(props) {
-  const { dataSource } = props;
+  const { dataSource, columns } = props;
   const [selectedRowKeys, setSelectedRowKeys] = useState([]);
 
   const onSelectChange = (selectedRowKeys) => {
