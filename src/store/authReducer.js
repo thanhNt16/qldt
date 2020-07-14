@@ -33,6 +33,12 @@ const authReducer = function (state = initialState, action) {
         role: action.data,
       };
     }
+    case Actions.SET_USER_DATA: {
+      return {
+        ...state,
+        userData: action.data,
+      };
+    }
     default: {
       return state;
     }

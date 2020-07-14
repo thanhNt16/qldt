@@ -5,7 +5,8 @@ import Router from "next/router";
 import nextCookie from "next-cookies";
 import cookie from "js-cookie";
 
-export const login = ({ token, role }) => {
+
+export const login = ({ token }) => {
   cookie.set("token", token, { expires: 1 });
   Router.push(`/project`);
 };
