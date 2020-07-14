@@ -9,7 +9,7 @@ export default function Footer() {
           <source srcSet={require("images/logo.jpg")} type="image/jpeg" />
           <img className="mr-10 hidden md:block" style={{ height: "100px" }} src={require("images/logo.jpg?webp")} />
         </picture>
-        <div className>
+        <div>
           <p className="text-white text-lg mb-2">
             HỆ THỐNG DO TRƯỜNG ĐẠI HỌC BÁCH KHOA HÀ NỘI THIẾT KẾ & PHÁT TRIỂN.
           </p>

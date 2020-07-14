@@ -10,3 +10,10 @@ export function loginRequest(data) {
     data,
   };
 }
+
+export function setRole(data) {
+  return {
+    type: SET_ROLE,
+    data,
+  };
+}

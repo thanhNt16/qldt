@@ -12,11 +12,8 @@ export function* loginRequest({ data }) {
       yield put({ type: Actions.LOGIN_SUCCESS, data: { ...result.data } });
       yield put({ type: Actions.LOGIN_FAILED, data: null });
       yield put({ type: Actions.SET_LOADING, data: false });
-      if (result.data && result.data.teacherId) {
-        yield put({ type: Actions.SET_ROLE, data: "teacher" });
-      } else {
-        yield put({ type: Actions.SET_ROLE, data: "student" });
-      }
+      let role = result.data && result.data.teacherId ? "teacher" : "student";
+      yield put({ type: Actions.SET_ROLE, data: role });
       swal({
         text: "Đăng nhập thành công",
         title: "Thành công!",
@@ -24,7 +21,7 @@ export function* loginRequest({ data }) {
       }).then(() => {
         // value && Router.push("/home");
         // console.log("data", result.data.sessionId);
-        login({ token: result.data.sessionId });
+        login({ role, token: result.data.sessionId });
       });
     } else {
       yield put({ type: Actions.LOGIN_FAILED, data: { ...result.data } });
