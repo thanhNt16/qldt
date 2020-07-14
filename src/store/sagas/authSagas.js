@@ -21,7 +21,7 @@ export function* loginRequest({ data }) {
       }).then(() => {
         // value && Router.push("/home");
         // console.log("data", result.data.sessionId);
-        login({ role, token: result.data.sessionId });
+        login({ token: result.data.sessionId });
       });
     } else {
       yield put({ type: Actions.LOGIN_FAILED, data: { ...result.data } });

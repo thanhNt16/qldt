@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import cookie from "js-cookie";
 import Router from "next/router";
-import * as Actions from "../store/actions";
+import * as Actions from "src/store/actions";
 
 export default function useCookie() {
   const dispatch = useDispatch();
@@ -17,10 +17,12 @@ export default function useCookie() {
         if (data.status === 0) {
           // redirectOnError();
           dispatch(Actions.setRole(null));
+          dispatch(Actions.setUserData(null));
           if (Router.pathname !== "/login") {
             Router.push("/");
           }
         } else {
+          dispatch(Actions.setUserData(data.data));
           if (data.data && data.data.teacherId) {
             dispatch(Actions.setRole("teacher"));
             // Router.push("/teacher");
@@ -28,9 +30,13 @@ export default function useCookie() {
             dispatch(Actions.setRole("student"));
             // Router.push("/student");
           }
+          if (Router.pathname === "/login" || Router.pathname === "/") {
+            Router.push("/project");
+          }
         }
       } catch (error) {
         dispatch(Actions.setRole(null));
+        dispatch(Actions.setUserData(null));
         if (Router.pathname !== "/login") {
           Router.push("/");
         }
