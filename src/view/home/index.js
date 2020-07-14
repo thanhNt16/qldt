@@ -4,6 +4,8 @@ import { Layout, Typography, Row, Col } from "antd";
 import Header from "src/components/Header";
 import Navbar from "src/components/Navbar";
 import Table from "src/components/Table";
+import FilterBar from "src/components/FilterBar";
+
 import * as Actions from "src/store/actions";
 
 const { Content, Footer, Sider } = Layout;
@@ -38,7 +40,10 @@ export default function Home() {
     <Layout className="background-white">
       <Header />
       <Navbar />
-      <Table dataSource={makeProjectsData(projects)} />
+      <div className="w-full pl-24 pr-24">
+        <FilterBar />
+        <Table dataSource={makeProjectsData(projects)} />
+      </div>
     </Layout>
   );
 }
