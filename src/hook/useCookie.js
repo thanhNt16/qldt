@@ -1,8 +1,12 @@
 import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import cookie from "js-cookie";
 import Router from "next/router";
+import * as Actions from "../store/actions";
 
 export default function useCookie() {
+  const dispatch = useDispatch();
+
   useEffect(() => {
     async function checkCookie() {
       const token = cookie.get("token");
@@ -12,12 +16,24 @@ export default function useCookie() {
         const data = await response.json();
         if (data.status === 0) {
           // redirectOnError();
-          Router.push("/login");
+          dispatch(Actions.setRole(null));
+          if (Router.pathname !== "/login") {
+            Router.push("/");
+          }
         } else {
-          Router.push("/");
+          if (data.data && data.data.teacherId) {
+            dispatch(Actions.setRole("teacher"));
+            Router.push("/teacher");
+          } else {
+            dispatch(Actions.setRole("student"));
+            Router.push("/student");
+          }
         }
       } catch (error) {
-        Router.push("/login");
+        dispatch(Actions.setRole(null));
+        if (Router.pathname !== "/login") {
+          Router.push("/");
+        }
       }
     }
     checkCookie();

@@ -1,13 +1,10 @@
-import React, { useEffect } from "react";
-import Home from "src/view/home";
+import React from "react";
+import Landing from "src/view/landing";
 import useCookies from "src/hook/useCookie";
 
-import { withAuthSync } from "src/utils/auth";
-
-function home() {
+function landing() {
   useCookies();
-
-  return <Home />;
+  return <Landing />;
 }
 
-export default withAuthSync(home);
+export default landing;

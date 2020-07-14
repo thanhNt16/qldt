@@ -4,6 +4,7 @@ const initialState = {
   userData: null,
   error: null,
   loading: false,
+  role: null,
 };
 
 const authReducer = function (state = initialState, action) {
@@ -24,6 +25,12 @@ const authReducer = function (state = initialState, action) {
       return {
         ...state,
         loading: action.data,
+      };
+    }
+    case Actions.SET_ROLE: {
+      return {
+        ...state,
+        role: action.data,
       };
     }
     default: {
