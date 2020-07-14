@@ -1,6 +1,7 @@
 import React from "react";
 import { Layout, Row, Col } from "antd";
 import Header from "src/components/Header";
+import Footer from "src/components/Footer";
 
 // import "./style.less";
 
@@ -64,30 +65,37 @@ export default function Landing() {
 
   const instructions = [
     {
-      title: 'NHẬN TÀI KHOẢN',
-      desc: 'Mỗi sinh viên được cấp một tài khoản với tài khoản và mật khẩu mặc định là mã số sinh viên',
-      bg: '#582D7A'
+      title: "NHẬN TÀI KHOẢN",
+      desc:
+        "Mỗi sinh viên được cấp một tài khoản với tài khoản và mật khẩu mặc định là mã số sinh viên",
+      bg: "#582D7A",
     },
     {
-      title: 'GỬI YÊU CẦU',
-      desc: 'Sinh viên đăng nhập, điền biểu mẫu yêu cầu và nộp trên hệ thống Online',
-      bg: '#AFEAFF'
+      title: "GỬI YÊU CẦU",
+      desc:
+        "Sinh viên đăng nhập, điền biểu mẫu yêu cầu và nộp trên hệ thống Online",
+      bg: "#1A998E",
     },
     {
-      title: 'XỬ LÝ YÊU CẦU',
-      desc: 'Giáo vụ Viện nhận yêu cầu online, xử lý và thông báo qua email khi hoàn thành',
-      bg: '#7CAA46'
+      title: "XỬ LÝ YÊU CẦU",
+      desc:
+        "Giáo vụ Viện nhận yêu cầu online, xử lý và thông báo qua email khi hoàn thành",
+      bg: "#7CAA46",
     },
     {
-      title: 'NHẬN KẾT QUẢ',
-      desc: 'Khi nhận được thông báo yêu cầu xử lý thành công, Sinh viên lên Văn phòng Viện để nhận kết quả.',
-      bg: '#D5332B'
-    }
-  ]
+      title: "NHẬN KẾT QUẢ",
+      desc:
+        "Khi nhận được thông báo yêu cầu xử lý thành công, Sinh viên lên Văn phòng Viện để nhận kết quả.",
+      bg: "#D5332B",
+    },
+  ];
 
   return (
     <Layout className="background-white">
+      {/* Header */}
       <Header />
+
+      {/* Full width img */}
       <div className="w-full">
         <picture>
           <source
@@ -105,12 +113,13 @@ export default function Landing() {
         </picture>
       </div>
 
-      <div className="h-auto bg-white w-11/12 m-auto mt-8 mb-10">
+      {/* Teacher services */}
+      <div className="h-auto w-11/12 m-auto mt-8 mb-10">
         <h2 className="text-xl mb-8">DỊCH VỤ CHO GIẢNG VIÊN</h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10">
-          {teacherServices.map((item) => (
-            <div className="flex flex-col items-center">
+          {teacherServices.map((item, index) => (
+            <div key={index} className="flex flex-col items-center">
               <picture>
                 <source
                   srcSet={require(`images/${item.img}?webp`)}
@@ -129,37 +138,53 @@ export default function Landing() {
             </div>
           ))}
         </div>
+      </div>
 
-        <h2 className="text-xl mt-8 mb-8">DỊCH VỤ CHO SINH VIÊN</h2>
+      {/* Student services */}
+      <div className="bg-gray-200">
+        <div className="h-auto w-11/12 m-auto mt-8 mb-10">
+          <h2 className="text-xl mt-8 mb-8">DỊCH VỤ CHO SINH VIÊN</h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-          {studentServices.map((item) => (
-            <div className="flex flex-col items-center rounded shadow-lg p-10">
-              <picture>
-                <source
-                  srcSet={require(`images/${item.img}?webp`)}
-                  type="image/webp"
-                />
-                <source
-                  srcSet={require(`images/${item.img}`)}
-                  type="image/png"
-                />
-                <img
-                  src={require(`images/${item.img}?webp`)}
-                  className="h-16"
-                />
-              </picture>
-              <p className="text-center font-bold mt-4">{item.title}</p>
-              <p className="text-center">{item.desc}</p>
-            </div>
-          ))}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+            {studentServices.map((item, index) => (
+              <div
+                key={index}
+                className="flex flex-col items-center rounded shadow-lg p-10 bg-white"
+              >
+                <picture>
+                  <source
+                    srcSet={require(`images/${item.img}?webp`)}
+                    type="image/webp"
+                  />
+                  <source
+                    srcSet={require(`images/${item.img}`)}
+                    type="image/png"
+                  />
+                  <img
+                    src={require(`images/${item.img}?webp`)}
+                    className="h-16"
+                  />
+                </picture>
+                <p className="text-center font-bold mt-4">{item.title}</p>
+                <p className="text-center">{item.desc}</p>
+              </div>
+            ))}
+          </div>
         </div>
+      </div>
 
-        <h2 className="text-xl mt-10 mb-8">HƯỚNG DẪN SỬ DỤNG DỊCH VỤ TRỰC TUYẾN</h2>
+      {/* Instructions */}
+      <div className="h-auto bg-white w-11/12 m-auto mt-8 mb-10">
+        <h2 className="text-xl mt-10 mb-8">
+          HƯỚNG DẪN SỬ DỤNG DỊCH VỤ TRỰC TUYẾN
+        </h2>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
           {instructions.map((item, index) => (
-            <div className="flex flex-row items-center">
+            <div key={index} className="flex flex-row items-center relative">
+              <p className="absolute text-white font-bold text-6xl left-40" style={{ left: "29px" }}>
+                {"0" + (index + 1)}
+              </p>
               <picture>
                 <source
                   srcSet={require(`images/step-${index + 1}.png?webp`)}
@@ -171,17 +196,35 @@ export default function Landing() {
                 />
                 <img
                   src={require(`images/step-${index + 1}.png?webp`)}
-                  className="object-fill h-full w-auto"
+                  className="object-fill h-full"
+                  style={{ width: "133px", minWidth: "133px" }}
                 />
               </picture>
               <div className="pl-5">
-                <p className="font-bold" style={{ color: item.bg }}>{item.title}</p>
+                <p className="font-bold" style={{ color: item.bg }}>
+                  {item.title}
+                </p>
                 <p>{item.desc}</p>
               </div>
             </div>
           ))}
         </div>
       </div>
+
+      {/* Contact */}
+      <div className="bg-gray-200">
+        <div className="h-auto w-11/12 m-auto mt-8 mb-10">
+          <h2 className="text-xl mt-10 mb-8">
+            LIÊN HỆ
+          </h2>
+          <p>
+            Nếu bạn có câu hỏi/đề xuất/vấn đề gì, hãy Gửi phản hồi cho chúng tôi.
+          </p>
+        </div>
+      </div>
+
+      {/* Footer */}
+      <Footer />
     </Layout>
   );
 }
