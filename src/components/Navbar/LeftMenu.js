@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Menu, Icon, Tooltip } from "antd";
+import Link from "next/link";
+import Router from "next/router";
 const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.ItemGroup;
 class LeftMenu extends Component {
@@ -16,7 +18,9 @@ class LeftMenu extends Component {
           title={<span>ĐỒ ÁN</span>}
         >
           <MenuItemGroup title="">
-            <Menu.Item key="setting:1">DANH SÁCH ĐỒ ÁN</Menu.Item>
+            <Menu.Item onClick={() => Router.push("/project")} key="setting:1">
+              DANH SÁCH ĐỒ ÁN
+            </Menu.Item>
             <Menu.Item key="setting:2">ĐĂNG KÝ NGUYỆN VỌNG</Menu.Item>
             <Menu.Item key="setting:3">ĐỒ ÁN THAM KHẢO</Menu.Item>
             <Menu.Item key="setting:4">ĐỊNH HƯỚNG ĐỀ TÀI</Menu.Item>
@@ -29,7 +33,9 @@ class LeftMenu extends Component {
             placement="top"
             title="Tra cứu thông tin về lớp: Thời khóa biểu, giảng viên, trạng thái,..."
           >
-            <a href="">LỊCH HỌC</a>
+            <Link href="/schedule">
+              <a>LỊCH HỌC</a>
+            </Link>
           </Tooltip>
         </Menu.Item>
         <Menu.Item className="nav-item" key="alipay">

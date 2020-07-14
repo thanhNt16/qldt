@@ -10,21 +10,82 @@ import ScheduleTable from "src/components/ScheduleTable";
 import * as Actions from "src/store/actions";
 
 const { Content, Footer, Sider } = Layout;
-import "./style.less";
 
-function makeProjectsData(projects) {
-  const data = projects.map((item, index) => {
+const columns = [
+  {
+    title: "Mã Lớp",
+    dataIndex: "classCode",
+    sorter: (a, b) => a.moduleCode.length - b.moduleCode.length,
+    sortDirections: ["descend", "ascend"],
+  },
+  {
+    title: "Mã HP",
+    dataIndex: "moduleCode",
+    sorter: (a, b) => a.moduleCode.length - b.moduleCode.length,
+    sortDirections: ["descend", "ascend"],
+  },
+  {
+    title: "Tên học phần",
+    dataIndex: "moduleName",
+    sorter: (a, b) => a.moduleCode.length - b.moduleCode.length,
+    sortDirections: ["descend", "ascend"],
+  },
+  {
+    title: "Loại hình",
+    dataIndex: "type",
+    sorter: (a, b) => a.moduleCode.length - b.moduleCode.length,
+    sortDirections: ["descend", "ascend"],
+  },
+  {
+    title: "Hình thức giáo dục",
+    dataIndex: "mean",
+    sorter: (a, b) => a.moduleCode.length - b.moduleCode.length,
+    sortDirections: ["descend", "ascend"],
+  },
+  {
+    title: "Hệ DT",
+    dataIndex: "program",
+    sorter: (a, b) => a.moduleCode.length - b.moduleCode.length,
+    sortDirections: ["descend", "ascend"],
+  },
+  {
+    title: "Danh sách SV",
+    dataIndex: "studentList",
+    sorter: (a, b) => a.cv.length - b.cv.length,
+    sortDirections: ["descend", "ascend"],
+    render: (text) => {
+      return {
+        children: <a href={text}>52/80</a>,
+      };
+    },
+  },
+  {
+    title: "Lớp",
+    dataIndex: "class",
+    sorter: (a, b) => a.moduleCode.length - b.moduleCode.length,
+    sortDirections: ["descend", "ascend"],
+  },
+  {
+    title: "Lịch học",
+    dataIndex: "schedule",
+    sorter: (a, b) => a.moduleCode.length - b.moduleCode.length,
+    sortDirections: ["descend", "ascend"],
+  },
+];
+
+function makeScheduleData(schedules) {
+  const data = schedules.map((item, index) => {
     return {
       key: index,
       moduleCode: item.courseId,
       classCode: item.classId,
-      studentCode: item.studentId,
-      studentName: item.studentName,
-      cv: item.student.cvUrl,
+      type: item.classType,
       program: "",
-      moduleName: item.projectName,
-      teacher: item.teacherName,
-      report: "N/A",
+      class: item.info,
+      moduleName: item.name,
+      studentList: `${item.studentNum}/${item.studentNumRange}`,
+      mean: item.accessCode,
+      schedule: item.calendars[0],
     };
   });
   return data;
@@ -32,10 +93,12 @@ function makeProjectsData(projects) {
 
 export default function Schedule() {
   const dispatch = useDispatch();
-  // const projects = useSelector(({ schedule }) => Object.values(schedule.projects));
+  const schedules = useSelector(({ schedule_teacher }) =>
+    Object.values(schedule_teacher.classes)
+  );
 
   useEffect(() => {
-    dispatch(Actions.fetchProjects());
+    dispatch(Actions.fetchClasses());
   }, []);
   return (
     <Layout className="background-white">
@@ -43,8 +106,7 @@ export default function Schedule() {
       <Navbar />
       <div className="w-full pl-24 pr-24">
         <FilterBar />
-        {/* <Table dataSource={makeProjectsData(projects)} /> */}
-        teacher
+        <Table dataSource={makeScheduleData(schedules)} columns={columns} />
       </div>
     </Layout>
   );
