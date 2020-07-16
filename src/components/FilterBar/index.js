@@ -163,7 +163,7 @@ export default function Filter() {
   return (
     <Row className="w-full p-4 flex items-center">
       {role === "teacher" ? (
-        <Col xs={12} md={3} lg={2}>
+        <Col >
           <Button
             type="primary"
             shape="round"
@@ -174,7 +174,7 @@ export default function Filter() {
           </Button>
         </Col>
       ) : null}
-      <Col xs={12} md={3} lg={2}>
+      <Col >
         <div className="flex items-center">
           <Text className="pr-4">Kỳ</Text>
           <Select defaultValue={20192} style={{ width: 100 }}>
@@ -190,25 +190,25 @@ export default function Filter() {
       </Col>
       {role === "teacher" ? (
         <React.Fragment>
-          <Col xs={12} md={2} lg={2}>
+          <Col>
             <Dropdown title="Chương trình" options={programs} />
           </Col>
-          <Col xs={12} md={2} lg={2}>
+          <Col>
             <Dropdown title="Loại lớp" options={classTypes} />
           </Col>
-          <Col xs={12} md={2} lg={2}>
+          <Col >
             <Dropdown title="Loại hình GD" options={learningTypes} />
           </Col>
-          <Col xs={12} md={2} lg={2}>
+          <Col >
             <Dropdown title="Học kỳ AB" options={ABSemester} />
           </Col>
-          <Col xs={12} md={2} lg={2}>
+          <Col>
             <Dropdown title="Trạng thái" options={status} />
           </Col>
         </React.Fragment>
       ) : null}
 
-      <Col xs={12} md={4} lg={4}>
+      <Col >
         <Input.Search
           className="ml-4"
           placeholder="Nhập mã lớp, mã môn hoặc tên môn"
