@@ -89,7 +89,7 @@ const classTypes = [
 export default function Filter() {
   return (
     <Row className="w-full p-4 flex items-center">
-      <Col xs={12} md={3} lg={2}>
+      <Col className="filter-btn" xs={12} md={3} lg={2}>
         <Button
           type="primary"
           shape="round"

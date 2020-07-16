@@ -12,7 +12,7 @@ export default function Project() {
       <Header />
       <Navbar />
       <div className="w-full pl-24 pr-24">
-        <FilterBar />
+        <FilterBar className="hidden-filter-btn" />
       </div>
     </Layout>
   );

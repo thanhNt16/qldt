@@ -5,7 +5,6 @@ import Header from "src/components/Header";
 import Navbar from "src/components/Navbar";
 import Table from "src/components/Table";
 import FilterBar from "src/components/FilterBar";
-import ScheduleTable from "src/components/ScheduleTable";
 
 import * as Actions from "src/store/actions";
 
