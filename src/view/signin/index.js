@@ -2,6 +2,7 @@ import React from "react";
 import { Form, Input, Button, Checkbox, Typography, Row, Col } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import { useDispatch, useSelector } from "react-redux";
+import Head from "src/components/Head";
 import * as Actions from "src/store/actions";
 import useCookie from "src/hook/useCookie";
 import "./style.less";
@@ -18,6 +19,7 @@ export default function SignIn() {
 
   return (
     <React.Fragment>
+      <Head />
       <div className="flex w-full h-screen wrap">
         <div className="left image-container">
           <picture>

@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import ProjectTeacher from "src/view/project_teacher";
 import ProjectStudent from "src/view/project_student";
+import Head from "src/components/Head";
 
 import useCookies from "src/hook/useCookie";
 
@@ -13,9 +14,19 @@ function Project() {
   useCookies();
 
   if (role === "teacher") {
-    return <ProjectTeacher />;
+    return (
+      <React.Fragment>
+        <Head />
+        <ProjectTeacher />
+      </React.Fragment>
+    );
   }
-  return <ProjectStudent />;
+  return (
+    <React.Fragment>
+      <Head />
+      <ProjectStudent />
+    </React.Fragment>
+  );
 }
 
 export default withAuthSync(Project);
