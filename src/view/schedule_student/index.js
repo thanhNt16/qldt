@@ -49,7 +49,7 @@ const columns = [
     render: (text, record) => {
       if (text === 'Offline') {
         return {
-          children: <a style={{ color: 'black' }}>{text}</a>,
+          children: <p >{text}</p>,
         };
       } else
         return {
@@ -160,7 +160,6 @@ const dataSource = [
 ];
 
 export default function Schedule() {
-  const role = useSelector(({ auth }) => auth.role);
   const dispatch = useDispatch();
   // const projects = useSelector(({schedule}) => Object.values(schedule.projects));
 
@@ -172,9 +171,7 @@ export default function Schedule() {
       <Header />
       <Navbar />
       <div className="w-full pl-24 pr-24">
-        {role === "teacher" ? <FilterBar /> : <FilterBar className='hidden-filter-btn' />}
-        {/* <FilterBar /> */}
-        {/* <Table dataSource={makeProjectsData(projects)} /> */}
+        <FilterBar />
         <Table columns={columns} dataSource={dataSource} />
       </div>
     </Layout>
