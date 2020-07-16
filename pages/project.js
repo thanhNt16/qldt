@@ -23,7 +23,7 @@ function Project() {
   }
   return (
     <React.Fragment>
-      <Head />
+      <Head title="Danh sách đồ án" />
       <ProjectStudent />
     </React.Fragment>
   );

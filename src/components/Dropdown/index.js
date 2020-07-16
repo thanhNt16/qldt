@@ -1,10 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { Button, Menu, Dropdown, Checkbox } from "antd";
+import { useDispatch, useSelector } from "react-redux";
+import * as Actions from "src/store/actions";
 
 export default function Dropdownz(props) {
+  const dispatch = useDispatch();
   const { options, title } = props;
   const [checkedAll, setCheckedAll] = useState(false);
   const [checkedOptions, setCheckedOptions] = useState(options);
+  const checkOption = useSelector(
+    ({ project_teacher }) => project_teacher.checkOptions
+  );
 
   const renderMenu = (
     <Menu>

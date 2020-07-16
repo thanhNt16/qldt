@@ -2,8 +2,10 @@ import * as Actions from "src/store/actions";
 
 const initialState = {
   projects: [],
+  baseProjects: [],
   projectError: null,
   projectLoading: false,
+  checkOptions: null,
 };
 
 const projectTeacherReducer = function (state = initialState, action) {
@@ -12,6 +14,7 @@ const projectTeacherReducer = function (state = initialState, action) {
       return {
         ...state,
         projects: action.data,
+        baseProjects: action.data,
       };
     }
     case Actions.FETCH_PROJECTS_FAILED: {
@@ -24,6 +27,18 @@ const projectTeacherReducer = function (state = initialState, action) {
       return {
         ...state,
         projectLoading: action.data,
+      };
+    }
+    case Actions.SET_FILTER_OPTION_PROJECT: {
+      return {
+        ...state,
+        checkOptions: action.data,
+      };
+    }
+    case Actions.SET_PROJECTS: {
+      return {
+        ...state,
+        projects: action.data,
       };
     }
     default: {

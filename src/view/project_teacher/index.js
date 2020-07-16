@@ -98,7 +98,9 @@ function makeProjectsData(projects) {
 
 export default function Project() {
   const dispatch = useDispatch();
-  const projects = useSelector(({ home }) => Object.values(home.projects));
+  const projects = useSelector(({ project_teacher }) =>
+    Object.values(project_teacher.projects)
+  );
 
   useEffect(() => {
     dispatch(Actions.fetchProjects());

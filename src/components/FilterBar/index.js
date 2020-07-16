@@ -9,10 +9,10 @@ import {
   Menu,
   Checkbox,
 } from "antd";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import Dropdown from "src/components/Dropdown";
 import { FilterFilled } from "@ant-design/icons";
-
+import * as Actions from "src/store/actions";
 const { Option } = Select;
 const { Text } = Typography;
 
@@ -145,7 +145,21 @@ const status = {
 };
 
 export default function Filter() {
+  const dispatch = useDispatch();
   const role = useSelector(({ auth }) => auth.role);
+  const projects = useSelector(({ project_teacher }) =>
+    Object.values(project_teacher.baseProjects)
+  );
+
+  function handleSearch(value) {
+    if (value === "") {
+      dispatch(Actions.setProjects(projects));
+    } else {
+      const searched = projects.filter((project) => project.classId === value);
+      dispatch(Actions.setProjects(searched));
+    }
+  }
+
   return (
     <Row className="w-full p-4 flex items-center">
       {role === "teacher" ? (
@@ -198,6 +212,7 @@ export default function Filter() {
         <Input.Search
           className="ml-4"
           placeholder="Nhập mã lớp, mã môn hoặc tên môn"
+          onSearch={handleSearch}
         />
       </Col>
     </Row>
