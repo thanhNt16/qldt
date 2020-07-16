@@ -9,6 +9,7 @@ import {
   Menu,
   Checkbox,
 } from "antd";
+import { useSelector } from "react-redux";
 import Dropdown from "src/components/Dropdown";
 import { FilterFilled } from "@ant-design/icons";
 
@@ -87,9 +88,10 @@ const classTypes = [
 ];
 
 export default function Filter() {
+  const role = useSelector(({ auth }) => auth.role);
   return (
     <Row className="w-full p-4 flex items-center">
-      <Col className="filter-btn" xs={12} md={3} lg={2}>
+      {role === "teacher" ? <Col xs={12} md={3} lg={2}>
         <Button
           type="primary"
           shape="round"
@@ -98,7 +100,7 @@ export default function Filter() {
         >
           Bộ lọc
         </Button>
-      </Col>
+      </Col> : null}
       <Col xs={12} md={3} lg={2}>
         <div className="flex items-center justify-between">
           <Text>Kỳ</Text>
