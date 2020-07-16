@@ -16,14 +16,14 @@ function schedule() {
   if (role === "teacher") {
     return (
       <React.Fragment>
-        <Head />
+        <Head title="Danh sách lớp" />
         <ScheduleTeacher />
       </React.Fragment>
     );
   }
   return (
     <React.Fragment>
-      <Head />
+      <Head title="Lịch học" />
       <ScheduleStudent />
     </React.Fragment>
   );

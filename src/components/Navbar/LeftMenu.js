@@ -33,9 +33,9 @@ class LeftMenu extends Component {
             placement="top"
             title="Tra cứu thông tin về lớp: Thời khóa biểu, giảng viên, trạng thái,..."
           >
-            <Link href="/schedule">
-              <a>LỊCH HỌC</a>
-            </Link>
+            {/* <Link href="/schedule"> */}
+            <a onClick={() => Router.push("/schedule")}>LỊCH HỌC</a>
+            {/* </Link> */}
           </Tooltip>
         </Menu.Item>
         <Menu.Item className="nav-item" key="alipay">

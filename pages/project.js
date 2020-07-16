@@ -16,7 +16,7 @@ function Project() {
   if (role === "teacher") {
     return (
       <React.Fragment>
-        <Head />
+        <Head title="Danh sách đồ án" />
         <ProjectTeacher />
       </React.Fragment>
     );

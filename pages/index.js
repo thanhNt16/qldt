@@ -7,7 +7,7 @@ function landing() {
   useCookies();
   return (
     <React.Fragment>
-      <Head /> <Landing />{" "}
+      <Head title="Trang chủ" /> <Landing />{" "}
     </React.Fragment>
   );
 }

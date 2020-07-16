@@ -19,7 +19,7 @@ export default function SignIn() {
 
   return (
     <React.Fragment>
-      <Head />
+      <Head title="Đăng nhập" />
       <div className="flex w-full h-screen wrap">
         <div className="left image-container">
           <picture>
